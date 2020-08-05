@@ -8,7 +8,9 @@ Solução para o [desafio](challenge.md).
 
 ## Dependências
 
-Esse projeto usa módulos então você precisa da linguagem Go >= 1.13.
+- [Go](https://golang.org/) 1.13
+- [PostgreSQL](https://www.postgresql.org/) 12.3
+- (Opcional) [Docker](https://www.docker.com/) 19.03
 
 ## Configurações
 
@@ -19,33 +21,7 @@ cp configuration.toml.example configuration.toml
 vi configuration.toml
 ```
 
-As variáveis de exemplo coincidem com as setadas no arquivo [docker-compose.yml](docker-compose.yml) para facilitar a utilização do Docker.
-
-## Execute os testes (não precisa de postgresql)
-
-```
-go test ./...
-```
-
-Também é possível testar utilizando [cURL](curl.md).
-
-## Compile o projeto
-
-```
-go build -o superheroapi
-```
-
-## Execute
-
-```
-./superheroapi --help
-```
-
-## PostgreSQL
-
-O projeto conta com migrações automáticas e para isso precisamos de um banco de dados e um usuário com permissões para modificar o banco em questão.
-
-Existe a opção de utilizar o [Docker](https://www.docker.com/):
+As variáveis de exemplo coincidem com as setadas no arquivo [docker-compose.yml](docker-compose.yml) para facilitar a utilização do Docker:
 
 ```
 # Subir os containers
@@ -57,3 +33,28 @@ cat postgres-setup.sql | docker exec -i superheroapi_postgres psql -U superheroa
 # Descer os containers
 docker-compose down
 ```
+
+## Compilação
+
+```
+go build -o superheroapi
+```
+
+## Execução
+
+```
+./superheroapi --help
+```
+
+## Testes
+
+```
+go test ./...
+```
+
+Também é possível testar utilizando [cURL](curl.md).
+
+## Autores
+
+| [<img src="https://avatars1.githubusercontent.com/u/1256235?s=120&v=4" width=120><br><sub>@dvdscripter</sub>](https://github.com/dvdscripter) | [<img src="https://avatars2.githubusercontent.com/u/1824706?s=120&v=4" width=120><br><sub>@willystadnick</sub>](https://github.com/willystadnick) |
+| :---: | :---: |
