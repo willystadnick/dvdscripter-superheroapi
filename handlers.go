@@ -9,6 +9,8 @@ import (
 var genericErr = "Oops something went wrong"
 
 func (app *App) NewSuper(w http.ResponseWriter, r *http.Request) {
+	app.log.Println("Handling NewSuper")
+
 	var super model.Super
 	if err := fromJSON(r.Body, &super); err != nil {
 		app.Error(w, err, genericErr, http.StatusBadRequest)
@@ -28,6 +30,7 @@ func (app *App) NewSuper(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *App) GetAll(w http.ResponseWriter, r *http.Request) {
+	app.log.Println("Handling GetAll")
 
 	if alignment := r.URL.Query().Get("alignment"); alignment != "" {
 		switch alignment {
@@ -57,6 +60,8 @@ func (app *App) GetAll(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *App) GetAllGood(w http.ResponseWriter, r *http.Request) {
+	app.log.Println("Handling GetAllGood")
+
 	supers, err := app.storage.ListAllGood()
 	if err != nil {
 		app.Error(w, err, genericErr, http.StatusInternalServerError)
@@ -70,6 +75,8 @@ func (app *App) GetAllGood(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *App) GetAllBad(w http.ResponseWriter, r *http.Request) {
+	app.log.Println("Handling GetAllBad")
+
 	supers, err := app.storage.ListAllBad()
 	if err != nil {
 		app.Error(w, err, genericErr, http.StatusInternalServerError)
@@ -83,6 +90,7 @@ func (app *App) GetAllBad(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *App) GetByName(w http.ResponseWriter, r *http.Request, name string) {
+	app.log.Println("Handling GetByName")
 
 	supers, err := app.storage.FindByName(name)
 	if err != nil {
@@ -97,6 +105,8 @@ func (app *App) GetByName(w http.ResponseWriter, r *http.Request, name string) {
 }
 
 func (app *App) GetByID(w http.ResponseWriter, r *http.Request) {
+	app.log.Println("Handling GetByID")
+
 	id, err := getVar(r, "id")
 	if err != nil {
 		app.Error(w, err, "missing id parameter", http.StatusBadRequest)
@@ -116,6 +126,8 @@ func (app *App) GetByID(w http.ResponseWriter, r *http.Request) {
 }
 
 func (app *App) DeleteByID(w http.ResponseWriter, r *http.Request) {
+	app.log.Println("Handling DeleteByID")
+
 	id, err := getVar(r, "id")
 	if err != nil {
 		app.Error(w, err, "missing id parameter", http.StatusBadRequest)

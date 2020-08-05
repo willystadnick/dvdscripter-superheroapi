@@ -27,11 +27,16 @@ func main() {
 	app := setup(*configPath)
 
 	if *migrate {
+		app.log.Println("Running migrate")
+
 		if err := app.storage.AutoMigrateAll(); err != nil {
 			app.log.Fatal(err)
 		}
 	}
+
 	if *seed {
+		app.log.Println("Running seed")
+
 		if err := app.storage.Seed(); err != nil {
 			app.log.Fatal(err)
 		}
@@ -47,7 +52,7 @@ func main() {
 
 	superRouter.Use(alwaysJson)
 
-	app.log.Println("Ready")
+	app.log.Println("Listening on", app.config.Server.Bind)
 
 	app.log.Fatal(http.ListenAndServe(app.config.Server.Bind, router))
 }
