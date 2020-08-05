@@ -1,2 +1,3 @@
 configuration.toml
 *.exe
+.dbdata

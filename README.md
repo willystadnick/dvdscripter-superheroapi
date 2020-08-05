@@ -30,14 +30,21 @@ go build -o superheroapi
 ```
 
 ## PostgreSQL
-O projeto conta com migrações automáticas e para isso precisamos de um banco de
-dados e um usuário com permissões para modificar o banco em questão. Alguns exemplos abaixo.
+
+O projeto conta com migrações automáticas e para isso precisamos de um banco de dados e um usuário com permissões para modificar o banco em questão.
+
+Existe a opção de utilizar o [Docker](https://www.docker.com/):
 
 ```
-createdb --owner=superadminuser super
-```
+# Subir os containers
+docker-compose up -d
 
-Sempre existe a opção de rodar um docker de postgres.
+# Configurar o banco
+cat postgres-setup.sql | docker exec -i superheroapi_postgres psql -U superheroapi -d superheroapi
+
+# Descer os containers
+docker-compose down
+```
 
 Você também precisa renomear o arquivo ```configuration.toml.example``` para ```configuration.toml```.
 
@@ -48,8 +55,9 @@ Precisamos editar o arquivo com as configurações do seu postgres e banco criad
 dsn = "postgres://<usuário>:<senha>@<endereço>/<nome do banco>?<opções>"
 ```
 
-_dsn_ significa data source name, mais informações podem ser encontradas em
-https://pkg.go.dev/github.com/lib/pq?tab=doc
+_dsn_ significa data source name, mais informações podem ser encontradas em https://pkg.go.dev/github.com/lib/pq?tab=doc
+
+Caso esteja utilizando Docker, estas variáveis devem coincidir com as setadas no arquivo [docker-compose.yml](docker-compose.yml).
 
 ## Outras configurações
 
