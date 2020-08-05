@@ -1,7 +1,7 @@
 package sql
 
 import (
-	"github.com/dvdscripter/careers/model"
+	"github.com/willystadnick/dvdscripter-superheroapi/model"
 )
 
 func (db *DB) Seed() error {

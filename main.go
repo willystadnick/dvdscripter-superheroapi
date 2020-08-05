@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/dvdscripter/careers/storage"
-	"github.com/dvdscripter/careers/storage/sql"
 	"github.com/gorilla/mux"
+	"github.com/willystadnick/dvdscripter-superheroapi/storage"
+	"github.com/willystadnick/dvdscripter-superheroapi/storage/sql"
 )
 
 // App is our depency injection container, should contain only singletons

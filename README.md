@@ -1,7 +1,8 @@
 # Desafio
-[![Go Report Card](https://goreportcard.com/badge/github.com/dvdscripter/careers)](https://goreportcard.com/report/github.com/dvdscripter/careers)
-[![codecov](https://codecov.io/gh/dvdscripter/careers/branch/master/graph/badge.svg)](https://codecov.io/gh/dvdscripter/careers)
-[![Build Status](https://travis-ci.org/dvdscripter/careers.svg?branch=master)](https://travis-ci.org/dvdscripter/careers)
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/willystadnick/dvdscripter-superheroapi)](https://goreportcard.com/report/github.com/willystadnick/dvdscripter-superheroapi)
+[![codecov](https://codecov.io/gh/willystadnick/dvdscripter-superheroapi/branch/master/graph/badge.svg)](https://codecov.io/gh/willystadnick/dvdscripter-superheroapi)
+[![Build Status](https://travis-ci.org/willystadnick/dvdscripter-superheroapi.svg?branch=master)](https://travis-ci.org/willystadnick/dvdscripter-superheroapi)
 
 Solução para o [desafio](challenge.md).
 

@@ -1,6 +1,6 @@
 package storage
 
-import "github.com/dvdscripter/careers/model"
+import "github.com/willystadnick/dvdscripter-superheroapi/model"
 
 // SuperStorage is our contract which must be meet to interact with persistence.
 // All relationships should be preloaded before returning

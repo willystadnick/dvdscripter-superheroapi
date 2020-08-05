@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/dvdscripter/careers/model"
 	"github.com/google/uuid"
 	"github.com/jinzhu/gorm"
 	"github.com/pkg/errors"
+	"github.com/willystadnick/dvdscripter-superheroapi/model"
 )
 
 func TestDB_CreateSuper(t *testing.T) {

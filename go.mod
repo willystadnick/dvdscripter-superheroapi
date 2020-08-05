@@ -1,4 +1,4 @@
-module github.com/dvdscripter/careers
+module github.com/willystadnick/dvdscripter-superheroapi
 
 go 1.13
 

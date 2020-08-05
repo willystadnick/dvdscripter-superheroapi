@@ -12,10 +12,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dvdscripter/careers/model"
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 	"github.com/jinzhu/gorm"
+	"github.com/willystadnick/dvdscripter-superheroapi/model"
 )
 
 // storageFake implements storage for handler testing

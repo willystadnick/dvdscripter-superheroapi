@@ -1,10 +1,10 @@
 package sql
 
 import (
-	"github.com/dvdscripter/careers/model"
-	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"github.com/jinzhu/gorm"
 	"github.com/pkg/errors"
+	"github.com/willystadnick/dvdscripter-superheroapi/model"
 )
 
 type DB struct {
