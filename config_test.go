@@ -16,17 +16,26 @@ func TestLoadConfig(t *testing.T) {
 		wantErr bool
 	}{
 		{
-			name: "working",
-			args: args{"testdata/configuration.toml"},
+			name: "success",
+			args: args{"configuration.toml.example"},
 			want: &Config{
-				Server:   Server{Bind: "0.0.0.0:8000"},
-				Database: Database{DSN: "postgres://@localhost/super"},
+				Server: Server{
+					Address: "127.0.0.1",
+					Port:    "8000",
+				},
+				Database: Database{
+					User:    "superheroapi",
+					Pass:    "superheroapi",
+					Address: "127.0.0.1",
+					Port:    "5432",
+					Name:    "superheroapi",
+				},
 			},
 			wantErr: false,
 		},
 		{
-			name:    "file not found, I hope...",
-			args:    args{"testdata/configuration6116541.toml"},
+			name:    "error",
+			args:    args{"configuration.toml.error"},
 			want:    nil,
 			wantErr: true,
 		},

@@ -1,5 +1,10 @@
 [database]
-dsn = "postgres://superheroapi:superheroapi@127.0.0.1:5432/superheroapi?sslmode=disable"
+user = "superheroapi"
+pass = "superheroapi"
+address = "127.0.0.1"
+port = "5432"
+name = "superheroapi"
 
 [server]
-bind = "0.0.0.0:8000"
+address = "127.0.0.1"
+port = "8000"

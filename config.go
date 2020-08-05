@@ -8,21 +8,31 @@ import (
 )
 
 type Database struct {
-	DSN string
+	User string
+	Pass string
+	Address string
+	Port string
+	Name string
+}
+
+func (d Database) DSN() string {
+	return "postgres://" + d.User + ":" + d.Pass + "@" + d.Address + ":" + d.Port + "/" + d.Name + "?sslmode=disable"
 }
 
 type Server struct {
-	Bind string
+	Address string
+	Port string
 }
 
-// Config will contain any information which change between builds/deploy
-// environments
+func (s Server) Bind() string {
+	return s.Address + ":" + s.Port
+}
+
 type Config struct {
 	Database Database
 	Server   Server
 }
 
-// LoadConfig crate a new Config from path toml file
 func LoadConfig(path string) (*Config, error) {
 	config := &Config{}
 

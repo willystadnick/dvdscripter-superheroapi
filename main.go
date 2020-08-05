@@ -52,9 +52,9 @@ func main() {
 
 	superRouter.Use(alwaysJson)
 
-	app.log.Println("Listening on", app.config.Server.Bind)
+	app.log.Println("Listening on", app.config.Server.Bind())
 
-	app.log.Fatal(http.ListenAndServe(app.config.Server.Bind, router))
+	app.log.Fatal(http.ListenAndServe(app.config.Server.Bind(), router))
 }
 
 func setup(configPath string) *App {
@@ -65,7 +65,7 @@ func setup(configPath string) *App {
 		logger.Fatal(err)
 	}
 
-	storage, err := sql.New(config.Database.DSN)
+	storage, err := sql.New(config.Database.DSN())
 	if err != nil {
 		logger.Fatal(err)
 	}

@@ -10,6 +10,17 @@ Solução para o [desafio](challenge.md).
 
 Esse projeto usa módulos então você precisa da linguagem Go >= 1.13.
 
+## Configurações
+
+Copie o arquivo de configuração e edite as variáveis de ambiente.
+
+```
+cp configuration.toml.example configuration.toml
+vi configuration.toml
+```
+
+As variáveis de exemplo coincidem com as setadas no arquivo [docker-compose.yml](docker-compose.yml) para facilitar a utilização do Docker.
+
 ## Execute os testes (não precisa de postgresql)
 
 ```
@@ -45,26 +56,4 @@ cat postgres-setup.sql | docker exec -i superheroapi_postgres psql -U superheroa
 
 # Descer os containers
 docker-compose down
-```
-
-Você também precisa renomear o arquivo ```configuration.toml.example``` para ```configuration.toml```.
-
-Precisamos editar o arquivo com as configurações do seu postgres e banco criado.
-
-```
-[database]
-dsn = "postgres://<usuário>:<senha>@<endereço>/<nome do banco>?<opções>"
-```
-
-_dsn_ significa data source name, mais informações podem ser encontradas em https://pkg.go.dev/github.com/lib/pq?tab=doc
-
-Caso esteja utilizando Docker, estas variáveis devem coincidir com as setadas no arquivo [docker-compose.yml](docker-compose.yml).
-
-## Outras configurações
-
-Edite o ```configuration.toml``` e escolha o endereço e parta de execução.
-
-```
-[server]
-bind = "127.0.0.1:8000"
 ```
